@@ -1,19 +1,15 @@
 # ConnectFour
 
-**TODO: Add description**
+An implementation of the Connect Four board game in Elixir
 
-## Installation
+See:  http://wsmoak.net/2015/10/22/connect-four-elixir-part-1.html
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+## Usage
 
-  1. Add connect_four to your list of dependencies in `mix.exs`:
+You can print the board grid:
 
-        def deps do
-          [{:connect_four, "~> 0.0.1"}]
-        end
+```
+$ iex -S mix
 
-  2. Ensure connect_four is started before your application:
-
-        def application do
-          [applications: [:connect_four]]
-        end
+> ConnectFour.Game.print_board
+```
