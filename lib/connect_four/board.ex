@@ -21,4 +21,34 @@ defmodule ConnectFour.Board do
     for row <- 1..@last_row, column <- 1..@last_column, do: {row, column}
   end
 
+  def print do
+    # upside down - makes finding the first empty space easier
+    for row <- @last_row..1, do: print_columns(row)
+  end
+
+    def print_columns(row) do
+    for col <- 1..@last_column, do: print_space(row,col)
+    IO.write "\n"
+  end
+
+  def print_space(row, col) do
+    Process.whereis( agent_name(row,col) )
+    |> Agent.get(fn x -> x end)
+    |> convert_for_display
+    |> IO.write
+  end
+
+  def convert_for_display(player) do
+    case player do
+      Empty -> "."
+      :red -> "R"
+      :black -> "B"
+      _ -> "?"
+    end
+  end
+
+  def agent_name(row,col) do
+    String.to_atom("R" <> Integer.to_string(row) <> "C" <> Integer.to_string(col) )
+  end
+
 end
