@@ -46,14 +46,15 @@ defmodule ConnectFour.Board do
   end
 
   def print_space(row, col) do
-    Process.whereis( agent_name(row,col) )
+    agent_name(row,col)
+    |> Process.whereis
     |> Agent.get(fn x -> x end)
     |> convert_for_display
     |> IO.write
   end
 
-  def convert_for_display(player) do
-    case player do
+  def convert_for_display(agent_state) do
+    case agent_state do
       Empty -> "."
       :red -> "R"
       :black -> "B"
