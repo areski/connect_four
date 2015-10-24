@@ -66,4 +66,8 @@ defmodule ConnectFour.Board do
     String.to_atom("R" <> Integer.to_string(row) <> "C" <> Integer.to_string(col) )
   end
 
+  def place_token(player,col) do
+    :move_accepted
+  end
+
 end
