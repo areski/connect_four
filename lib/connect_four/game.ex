@@ -35,7 +35,7 @@ defmodule ConnectFour.Game do
 
   # Server Callbacks
 
-  def handle_call({:move, player, column}, _from, %{last_moved: player} = state) do
+  def handle_call({:move, player, _column}, _from, %{last_moved: player} = state) do
     {:reply, :wrong_player, state}
   end
 
