@@ -29,10 +29,15 @@ defmodule ConnectFour.Game do
     case GenServer.call(@registered_name, {:move, player, column}) do
       :ok -> "Successful move for #{player} player in column #{column}"
       :full -> "Column #{column} is full.  Please choose another."
+      :wrong_player -> "It's not your turn!"
     end
   end
 
   # Server Callbacks
+
+  def handle_call({:move, player, column}, _from, %{last_moved: player} = state) do
+    {:reply, :wrong_player, state}
+  end
 
   def handle_call({:move, player, column}, _from, state) do
     case ConnectFour.Board.place_token(player, column) do
