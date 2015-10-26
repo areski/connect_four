@@ -110,7 +110,7 @@ defmodule ConnectFour.Board do
     end
   end
 
-  def column_winner?(player,row,col,count) when row == 1
+  def column_winner?(player,row,col,count) when row == 1 do
     false
   end
 
