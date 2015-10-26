@@ -6,9 +6,13 @@ See:  http://wsmoak.net/2015/10/22/connect-four-elixir-part-1.html
 
 and http://wsmoak.net/2015/10/24/connect-four-elixir-part-2.html
 
+and http://wsmoak.net/2015/10/26/connect-four-elixir-part-3.html
+
 ## Usage
 
-You can print the board grid and make player moves (color, column)
+You can print the board grid and make player moves (color, column).
+
+A vertical win (in a column) will be detected.
 
 ```
 $ iex -S mix
